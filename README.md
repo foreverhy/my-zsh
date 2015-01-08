@@ -1,0 +1,2 @@
+My zsh configuration & themes
+=============================

@@ -1,0 +1,1 @@
+/home/mactavish/.oh-my-zsh/themes/candy.zsh-theme
