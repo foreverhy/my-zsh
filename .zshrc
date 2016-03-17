@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -54,7 +56,7 @@ ZSH_THEME="my-candy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man supervisor gitignore django pip debian sudo autopep8 common-aliases)
+plugins=(git colored-man supervisor gitignore django sudo debian autopep8 common-aliases command-not-found golang)
 # supervisor:
 # django:
 # pip: auto complete
@@ -64,7 +66,8 @@ plugins=(git colored-man supervisor gitignore django pip debian sudo autopep8 co
 
 # User configuration
 
-export PATH="/home/mactavish/program/eclipse:/opt/apache-ant-1.9.3//bin:/home/mactavish/program/TeXmacs-1.0.7.20-x11-i386-pc-linux-gnu/bin:/usr/lib/jvm/jdk1.7.0_25/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/mactavish/.rvm/bin:/home/mactavish/.rvm/bin:/usr/local/racket/bin:/home/mactavish/.rvm/bin"
+#export PATH="/home/mactavish/program/eclipse:/opt/apache-ant-1.9.3//bin:/home/mactavish/program/TeXmacs-1.0.7.20-x11-i386-pc-linux-gnu/bin:/usr/lib/jvm/jdk1.7.0_25/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/mactavish/.rvm/bin:/home/mactavish/.rvm/bin:/usr/local/racket/bin:/home/mactavish/.rvm/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/mactavish/.rvm/bin:/home/mactavish/.rvm/bin:/usr/local/racket/bin:/home/mactavish/.rvm/bin:/usr/local/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -96,16 +99,20 @@ fi
 # Example aliases
 alias zshconfig="vi ~/.zshrc"
 alias szsh="source ~/.zshrc"
+alias ll="ls -al"
 
 alias jst="j --stat"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias gs="git status"
+alias egrep="egrep --color=auto"
 
 
 alias -s cpp=vi
 alias -s c=vi
 alias txt=vi
+
+alias ipy=ipython
 
 
 autoload -U compinit
@@ -115,5 +122,47 @@ compinit
 # env
 export LD_LIBRARY_PATH=/usr/lib32:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-alias cxx='clang++ -std=c++11 -Wall'
+alias cxx='clang++ -std=c++11 -Wall -Wfatal-errors -Wno-deprecated'
+alias gxx='g++ -std=c++11 -Wall -Wfatal-errors'
+alias fxx='clang++ -lfl'
+alias tl='tlmgr  -repo http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/'
+alias fe='find . -regextype "posix-egrep" -regex'
 export PATH=$PATH:/usr/local/racket/bin
+
+export cent=/home/mactavish/hdd/mactavish/share/centos
+export huawei=/home/mactavish/hdd/mactavish/VirtualBox\ VMs/huaweishared
+
+
+
+
+# history setting
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=/home/mactavish/hdd/mactavish/cocos/cocos2d-x-3.8.1/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=/home/mactavish/hdd/mactavish/cocos/cocos2d-x-3.8.1/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable NDK_ROOT for cocos2d-x
+export NDK_ROOT=/opt/android-ndk-r10e
+export PATH=$NDK_ROOT:$PATH
+
+# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
+export ANDROID_SDK_ROOT=/home/mactavish/hdd/mactavish/Android
+export PATH=$ANDROID_SDK_ROOT:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+
+# Add environment variable ANT_ROOT for cocos2d-x
+export ANT_ROOT=/usr/share/ant/bin
+export PATH=$ANT_ROOT:$PATH
+
+export CHROME_DEVEL_SANDBOX=/usr/local/sbin/chrome-devel-sandbox
+
+#alias vi="emacs"
+#alias vim="emacs"
